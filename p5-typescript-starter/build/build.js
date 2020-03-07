@@ -101,5 +101,9 @@ function draw() {
     for (var i = 0; i < squares; i++) {
         Shapes.drawNestedStar(10, colors, i * 2, i * 2);
     }
+    for (var i = 0; i < squares; i++) {
+        translate(300, 400);
+        Shapes.drawNestedStar(10, colors, i / 2, i / 2);
+    }
 }
 //# sourceMappingURL=build.js.map
