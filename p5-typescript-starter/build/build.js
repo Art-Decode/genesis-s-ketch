@@ -68,7 +68,7 @@ var Shapes = (function () {
             stroke(colors[i]);
             noFill();
             angle = angle + 0.01;
-            rotate(angle);
+            rotate(angle / 2);
             beginShape();
             var points = Shapes.star(x, y, 10 * i, 25 * i, 7);
             for (var x = 0; x < points.length; x++) {
@@ -92,6 +92,7 @@ function draw() {
     background(51);
     translate(windowWidth / 2, windowHeight / 2);
     angle = angle + 0.01;
+    rotate(angle / 2);
     for (var i = 0; i < squares; i++) {
         Shapes.drawNestedStar(10, colors, i, i);
     }

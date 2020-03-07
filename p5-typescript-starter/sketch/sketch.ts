@@ -13,6 +13,8 @@ function draw() {
   translate(windowWidth / 2, windowHeight / 2);
 
   angle = angle + 0.01;
+  rotate(angle / 2);
+
   for (var i = 0; i < squares; i++) {
     Shapes.drawNestedStar(10, colors, i, i);
   }

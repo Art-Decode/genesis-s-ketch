@@ -29,7 +29,7 @@ class Shapes {
       noFill();
 
       angle = angle + 0.01;
-      rotate(angle);
+      rotate(angle / 2);
       beginShape();
       let points = Shapes.star(x, y, 10 * i, 25 * i, 7);
 
