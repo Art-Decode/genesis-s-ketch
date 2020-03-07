@@ -1,22 +1,19 @@
 let angle = 0;
-let squares = 10;
+let squares = 22;
 let colors: p5.Color[];
-
 function setup() {
-  frameRate(35);
   createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
   colors = ColorHelper.getColorsArray(squares);
 }
 
 function draw() {
-  background(51);
+  background(0);
+
   translate(windowWidth / 2, windowHeight / 2);
-
-  angle = angle + 0.01;
-  rotate(angle / 2);
-
-  for (var i = 0; i < squares; i++) {
-    Shapes.drawNestedStar(30, colors, i, i);
+  angle = angle + 0.0000001;
+  rotate(angle);
+  for (var size = 0; size < squares; size++) {
+    Shapes.drawNestedStar(squares, colors[size], size, size);
   }
 }

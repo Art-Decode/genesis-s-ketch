@@ -25,11 +25,10 @@ class Shapes {
   static drawNestedStar(squares: number, colors: any, x = 0, y = 0) {
     for (var i = 0; i < squares; i++) {
       strokeWeight(2);
-      stroke(colors[i]);
+      stroke(colors);
       noFill();
-
-      angle = angle + 0.01;
-      rotate(angle / 2);
+      angle = angle + 0.0000001;
+      rotate(angle);
       beginShape();
       let points = Shapes.star(x, y, 10 * i, 25 * i, 7);
 

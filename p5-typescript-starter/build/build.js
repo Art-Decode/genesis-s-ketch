@@ -6,13 +6,13 @@ var ColorHelper = (function () {
     };
     ColorHelper.rainbowColorBase = function () {
         return [
-            color('red'),
-            color('orange'),
-            color('yellow'),
-            color('green'),
+            color("red"),
+            color("orange"),
+            color("yellow"),
+            color("green"),
             color(38, 58, 150),
-            color('indigo'),
-            color('violet')
+            color("indigo"),
+            color("violet")
         ];
     };
     ColorHelper.getColorsArray = function (total, baseColorArray) {
@@ -22,7 +22,6 @@ var ColorHelper = (function () {
             baseColorArray = ColorHelper.rainbowColorBase();
         }
         var rainbowColors = baseColorArray.map(function (x) { return _this.getColorVector(x); });
-        ;
         var colours = new Array();
         for (var i = 0; i < total; i++) {
             var colorPosition = i / total;
@@ -65,10 +64,10 @@ var Shapes = (function () {
         if (y === void 0) { y = 0; }
         for (var i = 0; i < squares; i++) {
             strokeWeight(2);
-            stroke(colors[i]);
+            stroke(colors);
             noFill();
-            angle = angle + 0.01;
-            rotate(angle / 2);
+            angle = angle + 0.0000001;
+            rotate(angle);
             beginShape();
             var points = Shapes.star(x, y, 10 * i, 25 * i, 7);
             for (var x = 0; x < points.length; x++) {
@@ -81,21 +80,20 @@ var Shapes = (function () {
     return Shapes;
 }());
 var angle = 0;
-var squares = 10;
+var squares = 22;
 var colors;
 function setup() {
-    frameRate(35);
     createCanvas(windowWidth, windowHeight);
     rectMode(CENTER);
     colors = ColorHelper.getColorsArray(squares);
 }
 function draw() {
-    background(51);
+    background(0);
     translate(windowWidth / 2, windowHeight / 2);
-    angle = angle + 0.01;
-    rotate(angle / 2);
-    for (var i = 0; i < squares; i++) {
-        Shapes.drawNestedStar(30, colors, i, i);
+    angle = angle + 0.0000001;
+    rotate(angle);
+    for (var size = 0; size < squares; size++) {
+        Shapes.drawNestedStar(squares, colors[size], size, size);
     }
 }
 //# sourceMappingURL=build.js.map
