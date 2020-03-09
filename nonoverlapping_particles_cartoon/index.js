@@ -4,7 +4,7 @@ const MAX_PARTICLES_RADIUS = 50;
 let area = WIDTH * HEIGHT;
 let s;
 const BKG_COLOR = 0;
-let particles: any = [];
+let particles = [];
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -23,10 +23,7 @@ class Particle {
         getRndInteger(0, 255)
       );
       strokeWeight(random(0, 1));
-
-      for (var i = 0; i < 10; i++) {
-        Shapes.star(this.x, this.y, this.r, this.r, 10);
-      }
+      s.scribbleEllipse(this.x, this.y, this.r, this.r);
       fill(random(0, 255), random(0, 255), random(0, 255));
     } else {
       stroke(
@@ -52,9 +49,6 @@ function draw() {
   background(BKG_COLOR);
 
   while (area > MAX_PARTICLES_RADIUS) {
-    for (var i = 0; i < 10; i++) {
-      Shapes.star(this.x, this.y, this.r, this.r, 10);
-    }
     let x = random(0, WIDTH);
     let y = random(0, HEIGHT);
     let r = random(1, MAX_PARTICLES_RADIUS);

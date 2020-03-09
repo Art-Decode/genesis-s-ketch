@@ -27,12 +27,31 @@ class Shapes {
       strokeWeight(2);
       stroke(colors);
       noFill();
-
+      angle = angle + 0.000001;
+      rotate(angle);
       beginShape();
       let points = Shapes.star(x, y, 10 * i, 25 * i, 7);
 
       for (var x = 0; x < points.length; x++) {
         var v = points[x];
+        vertex(v.x, v.y);
+      }
+      endShape(CLOSE);
+
+      beginShape();
+      let points2 = Shapes.star(370, y, 10 * i, 25 * i, 7);
+
+      for (var x = 0; x < points2.length; x++) {
+        var v = points2[x];
+        vertex(v.x, v.y);
+      }
+      endShape(CLOSE);
+
+      beginShape();
+      let points2 = Shapes.star(370, y, 10 * i, 25 * i, 7);
+
+      for (var x = 0; x < points2.length; x++) {
+        var v = points2[x];
         vertex(v.x, v.y);
       }
       endShape(CLOSE);
