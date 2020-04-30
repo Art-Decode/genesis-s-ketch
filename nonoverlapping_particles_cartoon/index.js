@@ -3,37 +3,22 @@ const HEIGHT = 500;
 const MAX_PARTICLES_RADIUS = 50;
 let area = WIDTH * HEIGHT;
 let s;
+
 const BKG_COLOR = 0;
 let particles = [];
-
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+let colorsPastel = ["ffd5e5", "ffffdd", "a0ffe6", "81f5ff"];
 
 class Particle {
   constructor(x, y, r) {
     this.x = x;
     this.y = y;
     this.r = r;
+    noStroke();
+    s.scribbleFilling(this.x, this.y, 22, 22);§
+    s.scribbleEllipse(this.x, this.y, this.r, this.r);
+    s.scribbleFilling(this.x, this.y, 22, 22);
 
-    if (getRndInteger(0, 100) > 50) {
-      stroke(
-        getRndInteger(0, 255),
-        getRndInteger(0, 255),
-        getRndInteger(0, 255)
-      );
-      strokeWeight(random(0, 1));
-      s.scribbleEllipse(this.x, this.y, this.r, this.r);
-      fill(random(0, 255), random(0, 255), random(0, 255));
-    } else {
-      stroke(
-        getRndInteger(0, 255),
-        getRndInteger(0, 255),
-        getRndInteger(0, 255)
-      );
-      strokeWeight(random(0, 1));
-      s.scribbleRect(this.x, this.y, this.r, this.r);
-    }
+    fill(random(0, 255), random(0, 255), random(0, 255));
   }
 }
 
@@ -47,7 +32,6 @@ function setup() {
 
 function draw() {
   background(BKG_COLOR);
-
   while (area > MAX_PARTICLES_RADIUS) {
     let x = random(0, WIDTH);
     let y = random(0, HEIGHT);
